@@ -16,10 +16,10 @@ jobs:
           otp-version: ${{ matrix.otp }}
           elixir-version: ${{ matrix.elixir }}
       - uses: actions/cache@v1
-          id: mix-format-cache
-          with:
-            path: deps
-            key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-mix-${{ hashFiles(format('{0}-{1}', github.workspace, '/mix.lock')) }}
+        id: mix-format-cache
+        with:
+          path: deps
+          key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-mix-${{ hashFiles(format('{0}-{1}', github.workspace, '/mix.lock')) }}
       - name: Install Mix Dependencies
         if: steps.mix-format-cache.outputs.cache-hit != 'true'
         run: mix deps.get
