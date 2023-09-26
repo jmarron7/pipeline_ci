@@ -3,7 +3,7 @@ name: Check Dialyzer
 on: pull_request
 
 jobs:
-  check_lint:
+  check_dialyzer:
     runs-on: ubuntu-latest
     strategy:
       matrix:
